@@ -1,19 +1,19 @@
 import React from 'react'
 import { useState } from 'react'
+import Welcome from './Welcome'
 
 export default function LoginForm() {
     const [inputValue, setInputValue] = useState("")
     const handleChange = (event) => { 
         setInputValue(event.target.value)
      }
-     const handleSubmit = (event) => { 
+     const handleSubmit = () => { 
         alert(`Bonjour ${inputValue}`)
         setInputValue("")
       }
   return (
     <div>
-        <h1>Bienvenue chez nous!</h1><br />
-        <h2>Connectez-vous</h2>
+        <Welcome/>
         <form action="submit" onSubmit={handleSubmit}>
             <input 
                 type="text" 
