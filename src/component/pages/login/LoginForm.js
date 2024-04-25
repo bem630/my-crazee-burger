@@ -3,28 +3,30 @@ import { useState } from 'react'
 import Welcome from './Welcome'
 
 export default function LoginForm() {
+    //state
     const [inputValue, setInputValue] = useState("")
+
+    //comportement
     const handleChange = (event) => { 
         setInputValue(event.target.value)
      }
-     const handleSubmit = () => { 
+     const handleSubmit = (event) => {
+        event.preventDefault() 
         alert(`Bonjour ${inputValue}`)
         setInputValue("")
       }
+      //affichage
   return (
-    <div>
-        <Welcome/>
         <form action="submit" onSubmit={handleSubmit}>
+            <Welcome/>
             <input 
                 type="text" 
                 value={inputValue} 
                 placeholder='Entrez votre prénom...' 
                 required
                 onChange={handleChange}
-
             />
             <button>Accéder à votre espace</button>
         </form>
-    </div>
   )
 }
