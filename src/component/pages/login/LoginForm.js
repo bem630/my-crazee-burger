@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import Welcome from './Welcome'
+import { useNavigate } from 'react-router-dom'
 
 export default function LoginForm() {
     //state
     const [inputValue, setInputValue] = useState("")
+    const navigate = useNavigate()
 
     //comportement
     const handleChange = (event) => { 
@@ -12,7 +14,7 @@ export default function LoginForm() {
      }
      const handleSubmit = (event) => {
         event.preventDefault() 
-        alert(`Bonjour ${inputValue}`)
+        navigate(`order/ ${inputValue}`)
         setInputValue("")
       }
       //affichage
